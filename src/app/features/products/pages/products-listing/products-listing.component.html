@@ -1,0 +1,23 @@
+<div class="container-fluid p-0">
+  <div class="row">
+    <div class="col-lg-3 col-md-12 col-sm-6 col-12">
+      <product-subcategory-filter
+        #filterProducts
+        [subCategories]="subCategories"
+        [mainCatId]="mainCatId"
+        [noMainId]="noMainId"
+        (newCategory)="updateProducts($event)"
+      ></product-subcategory-filter>
+    </div>
+    <div class="col-lg-9 col-md-12 col-sm-6 col-12">
+      <section class="listing-section">
+        @if(mainProducts){
+        <customizable-product-list
+          [products]="mainProducts"
+          [Title]="catTitle"
+        ></customizable-product-list>
+        }
+      </section>
+    </div>
+  </div>
+</div>

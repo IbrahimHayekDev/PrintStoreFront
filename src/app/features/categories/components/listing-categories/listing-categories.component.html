@@ -1,0 +1,14 @@
+<section class="main-section categories-section section-padding">
+  <div class="container-fluid p-0">
+    <div class="row g-3 d-flex">
+      @for (category of categories() ; track category){
+      <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+        <singe-category-item
+          [categoryItem]="category"
+          (click)="navigateToProductListing(category.pId)"
+        ></singe-category-item>
+      </div>
+      }
+    </div>
+  </div>
+</section>

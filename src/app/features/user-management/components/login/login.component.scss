@@ -1,0 +1,108 @@
+.card-border {
+  padding: 6px;
+  background-image: url(/assets/images/registraion/login-bg.jpg);
+  background-size: cover;
+  border-radius: 10px;
+}
+.login-form {
+  border-radius: 10px;
+  background: none;
+  border: 0;
+  padding: 40px 30px;
+  background: #fefefe;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 20px;
+  // background-image: url("/assets/images/registraion/login-bg.jpg");
+  // background-size: cover;
+  background-color: rgba(255, 255, 255, 1);
+  background-blend-mode: lighten;
+  ::ng-deep .mat-mdc-card-header-text {
+    width: 100%;
+  }
+  mat-card-title {
+    h6 {
+      margin-bottom: 10px;
+      color: rgba(#000, 0.5);
+      b {
+        color: rgba(#000, 1);
+        font-weight: 700;
+      }
+    }
+    p {
+      font-size: 14px;
+      color: #000;
+      opacity: 0.65;
+      font-weight: 400;
+      margin-bottom: 40px;
+    }
+  }
+
+  mat-card-header.mat-mdc-card-header {
+    padding: 0;
+  }
+
+  mat-card-content.mat-mdc-card-content {
+    padding: 0;
+    .form {
+      min-width: 150px;
+      width: 100%;
+      .full-width {
+        width: 100%;
+      }
+    }
+  }
+}
+mat-card-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+.form-field-item {
+  margin-bottom: 12px;
+}
+button.main-button {
+  padding: 24px 40px;
+}
+
+section.login-main {
+  height: calc(100vh - 65px);
+  margin: 0 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  .login-card {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    height: auto;
+    margin: auto auto;
+    border-radius: 10px;
+    box-shadow: 0px 2px 6px -1px rgb(0 0 0);
+    max-width: 800px;
+  }
+  .login-left {
+    position: relative;
+    background-image: url("/assets/images/registraion/login-bg.jpg");
+    background-size: cover;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    height: 100%;
+    width: 500px;
+  }
+}
+
+section.login-options {
+  display: flex;
+  justify-content: space-between;
+  a {
+    font-size: 14px;
+  }
+}
+.half-width {
+  width: calc(50% - 15px);
+}

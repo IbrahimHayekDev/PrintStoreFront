@@ -1,0 +1,94 @@
+.product-details-sec {
+  p.single-product-brand {
+    font-family: "Poppins" !important;
+    font-size: 10px;
+    padding: 1px 6px;
+    width: fit-content;
+    line-height: 1.8;
+    margin-bottom: 4px;
+    color: white;
+    background-color: #45576a;
+  }
+
+  .single-product-description {
+    margin-top: 30px;
+    p {
+      white-space: pre-line;
+    }
+  }
+
+  .color-pick {
+    mat-button-toggle-group.mat-button-toggle-group {
+      border: 0;
+      border-radius: 0 !important;
+      ::ng-deep mat-button-toggle {
+        margin-inline-end: 12px;
+        width: 30px;
+        height: 30px;
+        border-radius: 5px !important;
+        border: 1px solid #c1c1c1 !important;
+        &.mat-button-toggle-checked {
+          border: 1px solid navy !important;
+        }
+        .mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked::after {
+          color: white;
+        }
+      }
+    }
+    .blackTick
+      ::ng-deep
+      .mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked::after {
+      color: black !important;
+    }
+  }
+
+  ::ng-deep {
+    .mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+      padding: 0 !important;
+      line-height: 2.2 !important;
+      display: block;
+      text-align: center;
+    }
+
+    .mat-button-toggle .mat-pseudo-checkbox {
+      margin-right: 0 !important;
+      margin-left: 4px;
+    }
+  }
+  h6.section-label {
+    font-size: 14px;
+  }
+  .section-part {
+    margin-bottom: 24px;
+  }
+  .section-separator {
+    height: 0;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 24px;
+  }
+}
+
+.color-pick.single-product-size {
+  mat-button-toggle-group.mat-button-toggle-group {
+    ::ng-deep mat-button-toggle {
+      width: fit-content !important;
+      min-width: 30px;
+      height: auto !important;
+
+      button.mat-button-toggle-button {
+        padding: 1px 8px;
+      }
+    }
+  }
+  .mat-button-toggle-appearance-standard.mat-button-toggle-checked {
+    color: white;
+    background-color: #45576a;
+  }
+}
+.image-gallery {
+  padding: 0 50px;
+  img {
+    width: auto;
+    max-width: 100%;
+  }
+}

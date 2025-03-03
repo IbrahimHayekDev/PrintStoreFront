@@ -1,0 +1,238 @@
+<!-- <div class="background">
+  <div class="shape"></div>
+  <div class="shape"></div>
+</div> -->
+<section class="login-main">
+  <div class="login-card">
+    <div class="container">
+      <div class="row">
+        <!-- <div class="col-md-6" style="padding: 0">
+          <div class="login-left"></div>
+        </div> -->
+        <div class="col-md-12" style="padding: 0">
+          <div class="card-border">
+            <mat-card class="login-form" appearance="outlined">
+              <mat-card-header>
+                <mat-card-title>
+                  <h6>
+                    We are <b>{{ sharedService.getStoreName() }}</b>
+                  </h6>
+                  <p>Welcome! Sign up a new account:</p>
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <form class="form" [formGroup]="signupForm">
+                  <mat-form-field
+                    class="half-width form-field-item"
+                    appearance="outline"
+                  >
+                    <mat-label>First name</mat-label>
+                    <mat-icon matPrefix>person</mat-icon>
+                    <input
+                      type="text"
+                      matInput
+                      formControlName="firstname"
+                      [errorStateMatcher]="matcher"
+                      placeholder="John"
+                    />
+
+                    @if (signupForm.controls['firstname'].hasError('required'))
+                    {
+                    <mat-error
+                      >First name is <strong>required</strong></mat-error
+                    >
+                    }
+                  </mat-form-field>
+
+                  <mat-form-field
+                    class="half-width form-field-item margin-before"
+                    appearance="outline"
+                  >
+                    <mat-label>Last name</mat-label>
+                    <mat-icon matPrefix>person</mat-icon>
+                    <input
+                      type="text"
+                      matInput
+                      formControlName="lastname"
+                      [errorStateMatcher]="matcher"
+                      placeholder="fejel"
+                    />
+
+                    @if (signupForm.controls['lastname'].hasError('required')) {
+                    <mat-error
+                      >Last name is <strong>required</strong></mat-error
+                    >
+                    }
+                  </mat-form-field>
+
+                  <mat-form-field
+                    class="full-width form-field-item"
+                    appearance="outline"
+                  >
+                    <mat-label>Mobile number</mat-label>
+                    <mat-icon matPrefix>call</mat-icon>
+                    <input
+                      type="text"
+                      matInput
+                      formControlName="mobilenumber"
+                      [errorStateMatcher]="matcher"
+                      placeholder="fejel"
+                    />
+
+                    @if
+                    (signupForm.controls['mobilenumber'].hasError('required')) {
+                    <mat-error
+                      >Mobile number is <strong>required</strong></mat-error
+                    >
+                    }
+                  </mat-form-field>
+
+                  <mat-form-field
+                    class="full-width form-field-item"
+                    appearance="outline"
+                  >
+                    <mat-label>Email</mat-label>
+                    <mat-icon matPrefix>email</mat-icon>
+                    <input
+                      type="email"
+                      matInput
+                      formControlName="email"
+                      [errorStateMatcher]="matcher"
+                      placeholder="Ex. pat@example.com"
+                    />
+                    @if (signupForm.controls['email'].hasError('email') &&
+                    !signupForm.controls['email'].hasError('required')) {
+                    <mat-error>Please enter a valid email address</mat-error>
+                    } @if (signupForm.controls['email'].hasError('required')) {
+                    <mat-error>Email is <strong>required</strong></mat-error>
+                    }
+                  </mat-form-field>
+
+                  <mat-form-field
+                    class="full-width form-field-item"
+                    appearance="outline"
+                  >
+                    <mat-label>Password</mat-label>
+                    <mat-icon matPrefix>lock</mat-icon>
+                    <input
+                      [type]="passwordVisible ? 'text' : 'password'"
+                      matInput
+                      formControlName="password"
+                      [errorStateMatcher]="matcher"
+                      placeholder="***********"
+                    />
+                    <button
+                      matSuffix
+                      mat-icon-button
+                      aria-label="show password"
+                      type="button"
+                      (click)="passwordVisible = !passwordVisible"
+                    >
+                      <mat-icon>visibility</mat-icon>
+                    </button>
+                    @if(signupForm.controls['password'].hasError('required')) {
+                    <mat-error>Password is <strong>required</strong></mat-error>
+                    } @if (signupForm.controls['password'].hasError('minLength')
+                    || signupForm.controls['password'].hasError('uppercase') ||
+                    signupForm.controls['password'].hasError('number') ||
+                    signupForm.controls['password'].hasError('specialCharacter'))
+                    {
+                    <mat-error>
+                      Password must contain at least 1 uppercase, 1 number, one
+                      special character with 8 charachters long
+                    </mat-error>
+                    }
+                  </mat-form-field>
+
+                  <mat-form-field
+                    class="full-width form-field-item"
+                    appearance="outline"
+                  >
+                    <mat-label>Confirm password</mat-label>
+                    <mat-icon matPrefix>lock</mat-icon>
+                    <input
+                      [type]="passwordVisible ? 'text' : 'password'"
+                      matInput
+                      formControlName="repeatPassword"
+                      [errorStateMatcher]="matcher"
+                      placeholder="***********"
+                    />
+                    <button
+                      matSuffix
+                      mat-icon-button
+                      aria-label="show password"
+                      type="button"
+                      (click)="passwordVisible = !passwordVisible"
+                    >
+                      <mat-icon>visibility</mat-icon>
+                    </button>
+                    @if(signupForm.controls['repeatPassword'].hasError('required'))
+                    {
+                    <mat-error
+                      >Confirm password is <strong>required</strong></mat-error
+                    >
+                    }
+                  </mat-form-field>
+                  @if(signupForm.hasError('passwordMismatch')) {
+                  <mat-error class="custom-error"
+                    >Confirm password must match the password</mat-error
+                  >
+                  }
+                  <!-- <mat-form-field
+                    class="full-width form-field-item"
+                    appearance="outline"
+                  >
+                    <mat-label>Repeat password</mat-label>
+                    <mat-icon matPrefix>lock</mat-icon>
+                    <input
+                      [type]="passwordVisible ? 'text' : 'password'"
+                      matInput
+                      formControlName="repeatPassword"
+                      [errorStateMatcher]="matcher"
+                      placeholder="***********"
+                    />
+                    @if(signupForm.controls['repeatPassword'].value !=
+                    signupForm.controls['password'].value) {
+                    <mat-error>
+                      Password must contain at least 1 uppercase, 1 number, one
+                      special character with 6 charachters long
+                    </mat-error>
+                    }
+                    <button
+                      matSuffix
+                      mat-icon-button
+                      aria-label="show password"
+                      type="button"
+                      (click)="passwordVisible = !passwordVisible"
+                    >
+                      <mat-icon>visibility</mat-icon>
+                    </button>
+                  </mat-form-field> -->
+                </form>
+              </mat-card-content>
+              <mat-card-footer class="card-footer">
+                <div class="create-account-link">
+                  <a
+                    href="#"
+                    routerLinkActive="active"
+                    [routerLink]="'/account/login'"
+                    >Have an account? Log in now
+                  </a>
+                </div>
+                <button
+                  mat-flat-button
+                  class="main-button"
+                  cdkFocusInitial
+                  [disabled]="!signupForm.valid"
+                  (click)="signup()"
+                >
+                  Sign in
+                </button>
+              </mat-card-footer>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

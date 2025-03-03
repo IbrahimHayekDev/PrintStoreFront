@@ -1,1 +1,206 @@
 /* You can add global styles to this file, and also import other style files */
+@import "bootstrap/scss/bootstrap-grid";
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins/Poppins-Black.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("/fonts/Nunito/static/Nunito-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Nunito-black";
+  src: url("/fonts/Nunito/static/Nunito-Black.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Nunito-bold";
+  src: url("/fonts/Nunito/static/Nunito-SemiBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+html,
+body {
+  margin: 0;
+}
+
+body {
+  height: calc(100% - 40px);
+  background: #d9dae3;
+  padding: 30px;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .mdc-button__label {
+    font-family: "Poppins" !important;
+  }
+  p,
+  label {
+    font-family: "Nunito" !important;
+  }
+}
+
+// bold things
+.measure-item-wrapper .measure-description p,
+.category-info .category-title label {
+  font-family: "Nunito-bold" !important;
+}
+
+.snack-bar-item {
+  white-space: pre-wrap;
+  background-color: #068dd1 !important;
+  .mat-mdc-snackbar-surface {
+    background-color: #068dd1 !important;
+  }
+  &.error-snack {
+    background-color: #d10606 !important;
+    .mat-mdc-snackbar-surface {
+      background-color: #d10606 !important;
+    }
+  }
+
+  button.mat-mdc-snack-bar-action {
+    span.mdc-button__label {
+      transform: rotate(45deg);
+      font-size: 22px;
+      color: white;
+    }
+  }
+}
+
+.main-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .form-input {
+    width: calc(50% - 20px);
+  }
+}
+
+.card-holder {
+  padding: 30px;
+  background-color: white;
+  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%);
+  border-radius: 10px;
+  margin-top: 30px;
+  .card-top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    label {
+      position: relative;
+      padding-left: 16px;
+
+      &:before {
+        content: "";
+        background-color: #068dd1;
+        width: 5px;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        border-radius: 10px;
+      }
+    }
+    .card-actions mat-icon {
+      color: #068dd1;
+    }
+  }
+  .card-content {
+    display: flex;
+    align-items: flex-start;
+    .content-image {
+      max-width: 150px;
+      img {
+        width: 100%;
+      }
+    }
+    .card-content-details {
+      flex-grow: 1;
+      padding: 0 30px;
+      &.padding-0 {
+        padding: 0;
+      }
+      .content-data-columns {
+        justify-content: space-between;
+        align-items: center;
+        display: flex;
+        margin-top: 24px;
+        .content-column {
+          label {
+            font-size: 14px;
+            color: #6e6e6e;
+          }
+          p {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+.multi-errors {
+  .mat-mdc-form-field-error-wrapper {
+    position: relative !important;
+  }
+}
+
+.section-padding {
+  padding-top: 30px;
+}
+
+.singe-product-list {
+  border-radius: 10px;
+  outline: 0px solid #202020;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+
+  .image-wrapper {
+    overflow: hidden;
+    border-radius: 6px;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: all 0.25s ease 0s;
+      border-radius: 6px;
+    }
+  }
+  &:hover {
+    transition: all 0.25s ease 0s;
+    img {
+      transition: all 0.25s ease 0s;
+      transform: scale(104%);
+    }
+  }
+}
+body:before {
+  content: "";
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #d9dae3;
+  z-index: 10;
+}
+
+.main-section {
+  background-color: white;
+  margin-top: 30px;
+  border-radius: 30px;
+  padding: 50px;
+}

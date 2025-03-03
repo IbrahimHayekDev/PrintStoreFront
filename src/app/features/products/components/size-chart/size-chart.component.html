@@ -1,0 +1,17 @@
+@if(measurments()){
+<table class="size-chart">
+  <tr>
+    @for (head of headerLabels; track $index) {
+    <th>{{ head }}</th>
+    }
+  </tr>
+  @for (row of sizeLabels; track $index) {
+  <tr>
+    <td>{{ row }}</td>
+    @for (head of rowsLabels; track $index) {
+    <td>{{ getCellValue(row, head) }}</td>
+    }
+  </tr>
+  }
+</table>
+}

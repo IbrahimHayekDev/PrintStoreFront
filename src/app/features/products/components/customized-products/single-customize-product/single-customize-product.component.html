@@ -1,0 +1,20 @@
+<div class="singe-product-list section-padding">
+  <div class="product-item-wrapper">
+    @if(productItem().brand){
+    <div class="brand-sticker">
+      <label class="brand">{{ productItem().brand }}</label>
+    </div>
+    }
+    <div class="image-wrapper">
+      <img [src]="productItem().imageUrl" />
+    </div>
+    <div class="product-details">
+      <p class="price">
+        @if (productItem().minPrice != productItem().maxPrice) {
+        {{ productItem().minPrice }} - }{{ productItem().maxPrice }}
+        <span>{{ productItem().currency }}</span>
+      </p>
+      <p class="product-title">{{ productItem().title }}</p>
+    </div>
+  </div>
+</div>

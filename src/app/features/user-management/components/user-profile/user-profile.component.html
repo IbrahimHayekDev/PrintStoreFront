@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="card-holder">
+      <div class="card-top-section">
+        <label>Account details</label>
+        <div class="card-actions">
+          <button
+            mat-icon-button
+            aria-label="edit icon"
+            (click)="navigateToEdit()"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="card-content">
+        <div class="content-image">
+          <img src="/assets/images/registraion/Blank-Profile-Picture.png" />
+        </div>
+        <div class="card-content-details">
+          <div class="content-title">
+            <h5>{{ user.userName || "Null" }}</h5>
+          </div>
+          <div class="content-data-columns">
+            <div class="content-column">
+              <label>Email</label>
+              <p>{{ user.email || "Null" }}</p>
+            </div>
+            <div class="content-column">
+              <label>Mobile number</label>
+              <p>{{ user.mobileNumber || "-" }}</p>
+            </div>
+            <div class="content-column">
+              <label>Orders</label>
+              <p>10</p>
+            </div>
+            <div class="content-column"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

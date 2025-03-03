@@ -1,0 +1,150 @@
+<section class="main-section section-padding">
+  <div class="container-fluid p-0">
+    <div class="row g-3">
+      <div class="col-lg-5">
+        <div class="image-gallery">
+          <img
+            [src]="selectedVariant.imageUrl || productItem().imageUrl"
+            alt="{{ productItem().title }}"
+            class="main-image"
+          />
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="product-details-sec">
+          @if(productItem().brand){
+          <p class="single-product-brand">{{ productItem().brand }}</p>
+          }
+          <h4 class="single-product-title">{{ productItem().title }}</h4>
+          <div class="section-separator"></div>
+
+          <div class="section-part">
+            <h6 class="section-label">Price</h6>
+            <p>{{ selectedVariant.price }} {{ productItem().currency }}</p>
+          </div>
+          <div class="color-pick section-part">
+            <h6 class="section-label">Color</h6>
+            <mat-button-toggle-group
+              (change)="colorChanged($event)"
+              [(ngModel)]="selectedColor"
+              aria-label="Color"
+            >
+              @for(color of colors; track color){
+              <mat-button-toggle
+                [style.background-color]="color.colorCode"
+                [class.blackTick]="color.colorCode == '#ffffff'"
+                [value]="color.colorCode"
+                #tooltip="matTooltip"
+                [matTooltip]="color.colorName"
+                [matTooltipPosition]="'below'"
+                matTooltipHideDelay="100"
+                >&nbsp;</mat-button-toggle
+              >
+              }
+            </mat-button-toggle-group>
+          </div>
+
+          <div class="color-pick single-product-size section-part">
+            <h6 class="section-label">Size</h6>
+            <mat-button-toggle-group
+              [hideSingleSelectionIndicator]="true"
+              (change)="sizeChanged($event)"
+              [(ngModel)]="selectedSize"
+              aria-label="Size"
+            >
+              @for(size of sizes; track size){
+              <mat-button-toggle [value]="size">{{ size }}</mat-button-toggle>
+              }
+            </mat-button-toggle-group>
+          </div>
+          <mat-accordion class="example-headers-align" multi>
+            <!-- #Descriptiom -->
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <h6 class="section-label">Description</h6>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+              <div class="single-product-description section-part">
+                <p [innerHTML]="productItem().productDescription"></p>
+              </div>
+            </mat-expansion-panel>
+
+            <!-- #Size Guide -->
+            <mat-expansion-panel (opened)="getSizeGuide()">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <h6 class="section-label">Size guide</h6>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+              <div class="size-guide-sec section-part">
+                <mat-tab-group>
+                  @if(productMeasurements && productMeasurements.length >0){
+                  <mat-tab label="Product measurements">
+                    <singe-measurment-item
+                      [Items]="productMeasurements"
+                    ></singe-measurment-item>
+                  </mat-tab>
+                  } @if(selfMeasurements && selfMeasurements.length >0){
+                  <mat-tab label="Measure yourself">
+                    <singe-measurment-item
+                      [Items]="selfMeasurements"
+                    ></singe-measurment-item>
+                  </mat-tab>
+                  } @if(internationalMeasurements &&
+                  internationalMeasurements.length >0){
+                  <mat-tab label="International measurements">
+                    <singe-measurment-item
+                      [Items]="internationalMeasurements"
+                    ></singe-measurment-item>
+                  </mat-tab>
+                  }
+                </mat-tab-group>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <div class="product-detail">
+  <div class="image-gallery">
+    <img
+      [src]="selectedVariant.imageUrl || productItem().imageUrl"
+      alt="{{ productItem().title }}"
+      class="main-image"
+    />
+  </div>
+
+  <div class="product-info">
+
+    <div class="variants">
+      <h3>Select Color</h3>
+      <div class="color-options">
+        @for (variant of productItem().customizableVarints ; track variant.id){
+        <button
+          [style.background-color]="variant.colorCode1"
+          (click)="selectVariant(variant)"
+          [class.active]="variant.id === selectedVariant.id"
+        ></button>
+        }
+      </div>
+
+      <h3>Select Size</h3>
+      <select formControlName="size">
+        @for (variant of productItem().customizableVarints ; track variant.id){
+        <option [value]="variant.size">{{ variant.size }}</option>
+        }
+      </select>
+
+      <h3>Quantity</h3>
+      <input type="number" formControlName="quantity" min="1" />
+    </div>
+
+    <p class="price">Price: ${{ selectedVariant.price }}</p>
+  </div>
+</div> -->

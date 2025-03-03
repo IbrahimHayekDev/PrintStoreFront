@@ -1,0 +1,17 @@
+<section class="main-section products-section section-padding">
+  <div class="container-fluid p-0">
+    <div class="row g-3 d-flex">
+      <h4 class="sticky-section-title">{{ Title() }}</h4>
+      @for (product of products() ; track product.id){
+      <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+        <single-customize-product
+          [productItem]="product"
+          (click)="navigateToProductDetails(product.id)"
+        ></single-customize-product>
+      </div>
+      } @if(products().length == 0){
+      <app-no-data></app-no-data>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,21 @@
+section.main-section.filter-section {
+  height: calc(100% - 130px);
+  .filter-wrapper {
+    position: sticky;
+    top: 135px;
+  }
+
+  .filter-button-wrapper {
+    button {
+      border-radius: 0;
+      margin-bottom: 4px;
+      ::ng-deep span.mdc-button__label {
+        color: black;
+        font-size: 16px;
+      }
+      &.active {
+        background-color: #e0f15d;
+      }
+    }
+  }
+}

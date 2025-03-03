@@ -1,0 +1,33 @@
+@if(Item){
+
+<div class="measure-item-wrapper">
+  <div class="measure-description section-tab">
+    <p [innerHTML]="Item.description"></p>
+  </div>
+
+  <div class="measure-image section-tab">
+    <div class="image-wrapper">
+      <img [src]="Item.imageUrl" [alt]="Item.type" />
+    </div>
+    <div class="image-desc">
+      <p [innerHTML]="Item.imageDescription"></p>
+    </div>
+  </div>
+
+  <div class="size-chart">
+    <h6 class="section-label">Size chart</h6>
+    <mat-button-toggle-group
+      class="toggle-units"
+      (change)="getSizeTable()"
+      [(ngModel)]="sizeUnit"
+      name="sizeUnit"
+      aria-label="sizeUnit"
+    >
+      <mat-button-toggle value="cm">cm</mat-button-toggle>
+      <mat-button-toggle value="inches">inches</mat-button-toggle>
+    </mat-button-toggle-group>
+    <size-chart [measurments]="measurments"></size-chart>
+  </div>
+</div>
+
+}

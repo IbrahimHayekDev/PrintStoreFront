@@ -1,0 +1,50 @@
+.singe-product-list.section-padding {
+  height: 100%;
+
+  .product-item-wrapper {
+    .product-details {
+      padding-bottom: 20px;
+      padding-top: 10px;
+      p.product-title {
+        font-size: 14px;
+        margin-bottom: 10px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.5;
+      }
+
+      p.price {
+        margin-bottom: 4px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.product-item-wrapper {
+  position: relative;
+  .brand-sticker {
+    position: absolute;
+    transform: rotate(90deg);
+    left: 18px;
+    top: 0;
+    transform-origin: top left;
+    z-index: 3;
+    border-radius: 20px;
+    label.brand {
+      font-family: "Poppins" !important;
+      font-size: 10px;
+      padding: 0px 6px;
+      display: block;
+      width: fit-content;
+      line-height: 1.8;
+      margin-bottom: 4px;
+      color: #e0f15d;
+      background-color: #45576a;
+      border-bottom-left-radius: 6px;
+    }
+  }
+}

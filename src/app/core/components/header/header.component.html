@@ -1,0 +1,70 @@
+<mat-toolbar class="app-header-toolbar">
+  <mat-toolbar-row class="main-toolbar">
+    <div class="header-logo">
+      <img src="/images/main/logo.png" />
+    </div>
+    <!-- <span>{{ sharedService.getStoreName() }}</span> -->
+    <section class="header-menu">
+      @if(mainCategories && mainCategories.length > 0){
+
+      <div class="button-row">
+        @for (menuItem of mainCategories; track menuItem.id) {
+        <button
+          [class.active]="
+            activePage != undefined && activePage() == menuItem.id
+          "
+          mat-button
+          (click)="navigatetoCategory(menuItem.id)"
+        >
+          {{ menuItem.title }}
+        </button>
+        }
+      </div>
+      }
+    </section>
+
+    <button mat-icon-button class="search" aria-label="search icon">
+      <mat-icon>search</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      class="shopping_cart"
+      aria-label="shopping_cart icon"
+    >
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+
+    @if(userLoggedIn){ @if(userData){
+    <div class="userData">
+      <button
+        class="trigger-options"
+        mat-icon-button
+        [matMenuTriggerFor]="userMenu"
+        aria-label="user menu"
+      >
+        <mat-icon>account_circle</mat-icon>
+        <label>{{ userData?.FirstName || "User Name" }}</label>
+      </button>
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item (click)="navigateToViewAccount()">
+          <mat-icon>account_circle</mat-icon>
+          <span>View account</span>
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          <span>Log out</span>
+        </button>
+      </mat-menu>
+    </div>
+    } } @else{
+    <button
+      mat-icon-button
+      class="account"
+      aria-label="account icon"
+      (click)="navigateAccount()"
+    >
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    }
+  </mat-toolbar-row>
+</mat-toolbar>

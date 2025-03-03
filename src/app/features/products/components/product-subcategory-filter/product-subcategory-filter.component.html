@@ -1,0 +1,15 @@
+<section class="main-section filter-section">
+  <div class="filter-wrapper">
+    @for(category of subCategories(); track category.id){
+    <div class="filter-button-wrapper">
+      <button
+        [class.active]="activeCategoryId == category.pId"
+        mat-button
+        (click)="onCategoryChange(category.pId)"
+      >
+        {{ category.title }}
+      </button>
+    </div>
+    }
+  </div>
+</section>
